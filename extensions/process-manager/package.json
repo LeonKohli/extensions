@@ -160,6 +160,7 @@
     }
   ],
   "scripts": {
+    "test": "node --test tests/*.test.cjs",
     "build": "vici build",
     "dev": "vici develop",
     "lint": "vici lint"
@@ -168,7 +169,8 @@
     "@vicinae/api": "^0.22.2",
     "freedesktop-icons": "^1.0.0",
     "systeminformation": "^5.23.5",
-    "xdg-apps": "^1.1.0"
+    "xdg-basedir": "^2.0.0",
+    "xdg-parse": "0.0.3"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

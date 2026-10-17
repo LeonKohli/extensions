@@ -1,0 +1,4 @@
+# Missing the [Desktop Entry] header triggers the reported xdg-parse error.
+Name=Broken launcher
+Exec=broken
+Icon=broken

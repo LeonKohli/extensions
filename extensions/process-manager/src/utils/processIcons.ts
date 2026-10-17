@@ -1,6 +1,6 @@
 import { Icon } from '@vicinae/api';
 import freedesktopIcons from 'freedesktop-icons';
-import Finder from 'xdg-apps';
+import { readDesktopEntries } from './desktopEntries';
 import type { Process } from '../hooks/useProcesses';
 
 const iconCache = new Map<string, string>();
@@ -11,11 +11,9 @@ async function loadDesktopEntries() {
   if (desktopEntriesLoaded) return;
 
   try {
-    const finder = new Finder('desktop');
-    await finder.entries.refresh();
-    const entries = await finder.entries.getEntries();
+    const entries = await readDesktopEntries();
 
-    for (const [_, data] of Object.entries(entries)) {
+    for (const data of entries) {
       const entry = data['Desktop Entry'];
       if (!entry?.Exec || !entry.Icon) continue;
 
